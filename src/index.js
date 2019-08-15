@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const audioCtx = new (window.AudioContext)();
     
     const audio = document.querySelector('audio');
     const source = audioCtx.createMediaElementSource(audio);
