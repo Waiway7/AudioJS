@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
             let angle = rads * (i + h - f);
+            // const ang = rads * (i);
             let x = centerX + (rms * Math.cos(angle) * (radius));
             let y = centerY + (rms * Math.sin(angle) * (radius));
             let xEnd = centerX + ( Math.cos(angle ) * (radius + barHeight) );
@@ -345,5 +346,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio.play();
     if (audioCtx.state === "running"){
-    animationLoop();}
+    animationLoop();
+    } else {
+        audioCtx.suspend();
+    }
 })
