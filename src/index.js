@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ['./images/pokemon.png', './images/mudkip.jpg', './images/entei.jpg', './images/twins.jpg', './images/pan.png', './images/ditto.jpg']
     let wallpaper;
     // document.body.style.backgroundImage = `url('${pokeArray[wallpaper]}')`;
-    document.body.style.backgroundColor = "rgb(" + 73 + ", " + 63 + ", " + 79 + ")";
-    // document.body.style.backgroundImage = `url('${pokeArray[0]}')`;
+    // document.body.style.backgroundColor = "rgb(" + 73 + ", " + 63 + ", " + 79 + ")";
+    document.body.style.backgroundImage = `url('${pokeArray[0]}')`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundSize = "cover";
