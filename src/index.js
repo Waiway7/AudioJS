@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ['./images/pokemon.png', './images/mudkip.jpg', './images/entei.jpg', './images/twins.jpg', './images/pan.png', './images/ditto.jpg']
     let wallpaper;
     // document.body.style.backgroundImage = `url('${pokeArray[wallpaper]}')`;
-    document.body.style.backgroundImage = `url('${pokeArray[0]}')`;
+    document.body.style.backgroundColor = "rgb(" + 73 + ", " + 63 + ", " + 79 + ")";
+    // document.body.style.backgroundImage = `url('${pokeArray[0]}')`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundSize = "cover";
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // ctx.moveTo(x1, y1);
             // ctx.lineTo(x2, y2);
             // ctx.stroke()
+
             let lineColor = "rgb(" + 255 + ", " + frequency + ", " + frequency + ")";
             if (wallpaper === 5){lineColor = "rgb(" + (frequency - 50 +231) + ", " + (frequency + 50) + ", " + (frequency + 100) + ")";}
             else if (wallpaper === 4){lineColor = "rgb(" + (frequency + 50) + ", " + (frequency + 130) + ", " + (frequency + 150) + ")"}
@@ -342,6 +344,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     audio.play();
-
-    animationLoop();
+    if (audioCtx.state === "running"){
+    animationLoop();}
 })
