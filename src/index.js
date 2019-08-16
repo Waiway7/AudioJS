@@ -11,30 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.backgroundSize = "cover";
     document.body.style.opacity = 1
     
-
-
-    const audioCtx = new (window.AudioContext)();
-    
-    const audio = document.querySelector('audio');
-    const source = audioCtx.createMediaElementSource(audio);
-    
-    const analyser = audioCtx.createAnalyser();
-    const gain = audioCtx.createGain();
-    source.connect(gain)
-    source.connect(analyser);
-    gain.gain.value = 0.7;
-    gain.connect(audioCtx.destination)
-    const fftSize = analyser.fftSize
-    
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-
-    const floatArray = new Uint8Array(bufferLength)
     // const dbArray = new Unit
     
+
     const canvas = document.getElementById("visualizer");
-    document.getElementById("visualizer").blur();
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
+    
     const bars = 200;
 
     let f = 0
@@ -64,11 +48,29 @@ document.addEventListener("DOMContentLoaded", () => {
     // const fadeIn = setInterval( () => {
     //     if (!wall.style.opacity)
     // })
+    canvas.addEventListener("click", () => {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    const audio = document.querySelector('audio');
+    const source = audioCtx.createMediaElementSource(audio);
+    
+    const analyser = audioCtx.createAnalyser();
+    const gain = audioCtx.createGain();
+    source.connect(gain)
+    source.connect(analyser);
+    gain.gain.value = 0.7;
+    gain.connect(audioCtx.destination)
+    const fftSize = analyser.fftSize
+    
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
 
+    const floatArray = new Uint8Array(bufferLength)
     function animationLoop() {
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         const centerX = canvas.width / 2;
         const centerY= canvas.height / 2;
         const radius = 100;
@@ -345,9 +347,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     audio.play();
+    
     if (audioCtx.state === "running"){
     animationLoop();
-    } else {
-        audioCtx.suspend();
-    }
-})
+    } 
+})})
