@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let dittoG =  139;
     let dittoB = 231;
     let switchWall = 0;
+
+
+    let audio = document.createElement("audio");
+    audio.src="audio/Victory Road (Original Mix) 2.mp3"
     
     // const fadeEffect = setInterval( () => {
        
@@ -49,23 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     if (!wall.style.opacity)
     // })
     canvas.addEventListener("click", () => {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     
-    const audio = document.querySelector('audio');
-    const source = audioCtx.createMediaElementSource(audio);
-    
-    const analyser = audioCtx.createAnalyser();
-    const gain = audioCtx.createGain();
-    source.connect(gain)
-    source.connect(analyser);
-    gain.gain.value = 0.7;
-    gain.connect(audioCtx.destination)
-    const fftSize = analyser.fftSize
-    
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-
-    const floatArray = new Uint8Array(bufferLength)
     function animationLoop() {
 
         
@@ -342,13 +330,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
         window.requestAnimationFrame(animationLoop);
-    }
-    
+        if (audio.currentTime === audio.duration){
+            audio.load();
+        }
+    }    
 
+    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioCtx.createMediaElementSource(audio);
+    const analyser = audioCtx.createAnalyser();
+    const gain = audioCtx.createGain();
+    source.connect(gain)
+    source.connect(analyser);
+    gain.gain.value = 0.7;
+    gain.connect(audioCtx.destination)
+    const fftSize = analyser.fftSize
 
-    audio.play();
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+    const floatArray = new Uint8Array(bufferLength)
     
-    if (audioCtx.state === "running"){
-    animationLoop();
+    if (audio.src){
+        audio.play();
+        animationLoop();
     } 
+    // if (audio.currentTime === 0) {
+    //     debugger
+    //     audioCtx.close();
+    // }
 })})
