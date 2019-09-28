@@ -58,20 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const eightBitPikachu = document.getElementsByTagName('img')[0]
     eightBitPikachu.style.position = "absolute"
     eightBitPikachu.style.left = "40%";
-    eightBitPikachu.style.height = "500px";
+    eightBitPikachu.style.height = "30em";
 
     eightBitPokeball.style.position = "absolute"
     eightBitPokeball.style.left = "38%";
-    eightBitPokeball.style.top = "220px";
-    eightBitPokeball.style.height = "300px";
-    eightBitPokeball.style.width = "300px";
+    eightBitPokeball.style.top = "26%";
+    eightBitPokeball.style.height = "20em";
+    eightBitPokeball.style.width = "20em";
 
     // angel.style.position = "absolute"
     text.style.position = "absolute"
     text.style.fontFamily = "Cute Font, cursive"
-    text.style.top = "60%"
+    text.style.top = "55%"
     text.style.left = "5%"
-    text.style.fontSize = "100px"
+    text.style.fontSize = "7em"
+
+    p[1].style.fontSize = "7em"
+    p[1].style.position = "absolute"
+    p[1].style.fontFamily = "Cute Font, cursive"
+    p[1].style.top = "65%"
+    p[1].style.left = "7%"
+
 
     angel.style.marginLeft = "30px";
     angel.style.cursor = "pointer"
@@ -93,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         play();
         pika.play();
         fadeOut(text)
+        fadeOut(p[1])
         fadeOut(eightBitPikachu,  theme)
         fadeOut(eightBitPokeball,  theme)
     })
