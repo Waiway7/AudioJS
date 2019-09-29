@@ -3,9 +3,9 @@
 ![image](https://github.com/Waiway7/AudioJS/blob/master/images/Screen%20Shot%202019-09-29%20at%201.25.19%20PM.png)
 
 # MVP
-Creating a visualization of a song through Web Audio API
-If enough time is allotted, will create other audio visualization.
-The project is tied together to my full stack project as a bonus MVP (creating sound waves)
+* Creating a visualization of a song through Web Audio API
+* If enough time is allotted, will create other audio visualization.
+* The project is tied together to my full stack project as a bonus MVP (creating sound waves)
 
 # API
 Web Audio API
