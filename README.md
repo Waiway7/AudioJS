@@ -2,8 +2,6 @@
 
 ![image](https://github.com/Waiway7/AudioJS/blob/master/images/Screen%20Shot%202019-09-29%20at%201.25.19%20PM.png)
 
-![image](https://user-images.githubusercontent.com/49809862/62941202-7e6e7d80-bda3-11e9-8aa4-adf1e725b67a.png)
-
 # PokeBoom
 A visualizer that uses the data from Web Audio API to render a circle visualizer with a pokemon theme inspired by an App Academy pokedex project. Web Audio API generates an array of numbers which represents the frequency of the music at that time and by using those numbers another formula is used to draw the visualizer on to the canvas. 
 
